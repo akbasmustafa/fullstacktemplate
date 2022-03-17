@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { endpoints } from "../api/endpoints";
 
 import "./Home.css";
 import logo from "./logo.svg";
@@ -8,7 +9,7 @@ export function Home() {
 	const [message, setMessage] = useState("Loading...");
 
 	useEffect(() => {
-		fetch("/api")
+		fetch(endpoints.LOGIN())
 			.then((res) => {
 				if (!res.ok) {
 					throw new Error(res.statusText);
